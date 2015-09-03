@@ -7,7 +7,7 @@ class NewTestSuite(object):
 		if('/' not in folder_name and folder_name!=''):
 			if(not os.path.isdir(folder_name)):
 				os.mkdir(folder_name)
-			self._maintain_folders()
+			self.__maintain_folders()
 		else:
 			raise Exception('Improper folder name!')
 
@@ -50,16 +50,18 @@ class NewTestSuite(object):
 
 
 	def AddGenerator(self,path): #Path contains the absolute path to file
-		self._maintain_folders()
+		self.__maintain_folders()
 		if(os.path.isfile(path) and path.split('/')[-1]=='Generator.py'):
 			shutil.copyfile(path,self.folder_name+'/Generator.py')
 		else:
 			raise Exception('Invalid File Path')
 
 	def AddSolution(self,path): #Path contains the absolute path to file
-		self._maintain_folders()
+		self.__maintain_folders()
 		if(os.path.isfile(path) and path.split('/')[-1]=='Solution.py'):
 			shutil.copyfile(path,self.folder_name+'/Solution.py')
 		else:
 			raise Exception('Invalid File Path')
 
+	def CreateTest(self):
+		self.__maintain_folders()
