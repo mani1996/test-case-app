@@ -1,6 +1,6 @@
 import os,sys,shutil
 
-class NewTestCase(object):
+class NewTestSuite(object):
 	def __init__(self,folder_name):
 		self.ip_count = 0 #Number of input files,output files present till now
 		self.folder_name = folder_name
@@ -12,7 +12,7 @@ class NewTestCase(object):
 			raise Exception('Improper folder name!')
 
 	#Creates folders for I/P and O/P if needed and removes junk files/folders 
-	def _maintain_folders(self):
+	def __maintain_folders(self):
 		#Input folder processing
 		if(os.path.isdir(self.folder_name+'/input')):
 			os.chdir(self.folder_name+'/input')
