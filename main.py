@@ -63,5 +63,12 @@ class NewTestSuite(object):
 		else:
 			raise Exception('Invalid File Path')
 
-	def CreateTest(self):
+	def NewInput(self,arg):
 		self.__maintain_folders()
+		os.chdir(self.folder_name)
+		call = 'python Generator.py '
+		s = ' '.join(map(lambda x:str(x),arg))
+		call+=(' '+s+' > input/input'+str(self.ip_count)+'.txt')
+		x = os.system(call)
+		if(x==0):
+			self.ip_count+=1
