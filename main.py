@@ -72,3 +72,4 @@ class NewTestSuite(object):
 		x = os.system(call)
 		if(x==0):
 			self.ip_count+=1
+		os.chdir('..')
