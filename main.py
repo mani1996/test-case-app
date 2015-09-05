@@ -72,4 +72,7 @@ class NewTestSuite(object):
 		x = os.system(call)
 		if(x==0):
 			self.ip_count+=1
+		else:
+			os.remove('input/input'+str(self.ip_count)+'.txt')
 		os.chdir('..')
+		self.__maintain_folders()
