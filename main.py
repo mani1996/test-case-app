@@ -1,4 +1,5 @@
 import os,sys,shutil
+import pipes
 
 class NewTestSuite(object):
 	def __init__(self,folder_name):
@@ -106,3 +107,37 @@ class NewTestSuite(object):
 				os.rename('output'+str(i)+'.txt','output'+str(i-1)+'.txt')
 				i+=1
 		os.chdir('../..')
+
+	def ZipTests(self):
+		self.__maintain_folders()
+		folder = 'Test Set - '+self.folder_name
+		os.chdir(self.folder_name)
+
+		if(os.path.isdir(folder)):
+			shutil.rmtree(folder,ignore_errors=True)
+		if(os.path.isfile(folder+'.zip')):
+			os.remove(folder+'.zip')
+		os.mkdir(folder) 
+
+		folder_escaped = pipes.quote(folder)
+
+		if(self.ip_count==0):
+			shutil.rmtree(folder,ignore_errors=True)
+			os.chdir('..')
+			raise Exception('Empty input and output folders')
+		elif(self.ip_count!=0 and not os.path.isfile('output/output'+str(self.ip_count-1)+'.txt')):
+			shutil.rmtree(folder,ignore_errors=True)
+			os.chdir('..')
+			raise Exception('Outputs missing for some input files')
+		else:
+			x1 = os.system('cp -a input '+folder_escaped)
+			x2 = os.system('cp -a output '+folder_escaped)
+			if(x1 or x2):
+				shutil.rmtree(folder,ignore_errors=True)
+				os.chdir('..')
+				raise Exception('Cannot finish operation: Input/Output folder missing')
+			else:
+				shutil.make_archive(folder,'zip',folder)
+				shutil.rmtree(folder,ignore_errors=True)
+				os.chdir('..')	
+			
