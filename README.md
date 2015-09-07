@@ -14,6 +14,8 @@ A Python module to maintain multiple test suites locally.
 
 **3.** Make sure the codes for generating inputs and outputs don't have infinite loops. This will be automated as well in the future.
 
+**Methods:**
+
 1. **Creating a new object:**
 
 	    from tcmanager import NewTestSuite
