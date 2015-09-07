@@ -26,6 +26,7 @@ A Python module to maintain multiple test suites locally.
 	    test_object.AddGenerator('type_path_here')
     
    Generator file is the file which contains code to generate input based on parameters. Path refers to the path of the generator file in system.
+   
  **Note:** The source file must be named as **_Generator.py_**
  
 3. **Adding solution file:**  
@@ -33,6 +34,7 @@ A Python module to maintain multiple test suites locally.
 		test_object.AddSolution('type_path_here')
 	
 	Solution file is the file which contains code to generate outputs for the test cases. Path refers to the path of solution file in system.
+	
 **Note:** The source file must be named as **_Solution.py_**
 
 4.  **Adding a new input file:**
@@ -40,6 +42,7 @@ A Python module to maintain multiple test suites locally.
 		test_object.NewInput(args)
 
    _args_  is a list/tuple containing the set of parameters to be passed to generator code for new input file. These parameters can be accessed from the **_sys.argv_** parameter of generator file.
+   
    **Note:** The parameters start from sys.argv[1]. sys.argv[0] contains 'Generator.py'
  
 5.  **Generating outputs:**
