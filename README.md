@@ -35,7 +35,7 @@ A Python module to maintain multiple test suites locally.
 	
 	Solution file is the file which contains code to generate outputs for the test cases. Path refers to the path of solution file in system.
 	
-**Note:** The source file must be named as **_Solution.py_**
+	**Note:** The source file must be named as **_Solution.py_**
 
 4.  **Adding a new input file:**
 	
