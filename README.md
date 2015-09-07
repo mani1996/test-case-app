@@ -7,8 +7,11 @@ A Python module to maintain multiple test suites locally.
 
 ###**Documentation**
 **Note:** 
+
 **1.** The test suite folder will be created in the folder where test suite object is initialized. Make sure that the chosen folder has read-write access.
+
 **2.** The test suite folder contains 2 folders - **input** and **output** and  should contain the 2 files **Generator.py** and **Solution.py** . Details regarding these 2 files are explained below.
+
 **3.** Make sure the codes for generating inputs and outputs don't have infinite loops. This will be automated as well in the future.
 
 1. **Creating a new object:**
