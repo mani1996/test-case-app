@@ -43,13 +43,16 @@ A Python module to maintain multiple test suites locally.
 
    _args_  is a list/tuple containing the set of parameters to be passed to generator code for new input file. These parameters can be accessed from the **_sys.argv_** parameter of generator file.
    
-   **Note:** The parameters start from sys.argv[1]. sys.argv[0] contains 'Generator.py'
+   **Note:** 
+   1. The parameters start from sys.argv[1]. sys.argv[0] contains 'Generator.py' . 
+   2. Add the **_Generator.py_** file before calling this function.
  
 5.  **Generating outputs:**
 		 
 		 test_object.GetOutput()
 	     
 	This will generate output files if the code works successfully. Otherwise, the output folder is left empty.
+	**Note:** Add the **_Solution.py_** file before calling this function.
    
 6.  **Delete Test:**
 
